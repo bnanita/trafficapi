@@ -1,6 +1,8 @@
 # TrafficAPI - Traffic DATALAKE  RestAPI
 
-This is a sample python based traffic API that support operation on traffic datalake. ## Available APIs
+This is a sample python based traffic API that support operation on traffic datalake. 
+
+## Available APIs
 
 ### User APIs
 
