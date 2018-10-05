@@ -6,7 +6,7 @@ This is a sample python based traffic API that support operation on traffic data
 
 ### User APIs
 
-#### POST `/traffics`
+#### POST `/traffic`
 
 You can do a POST to `/traffics` to create a new user.
 
@@ -27,7 +27,7 @@ It returns the following:
 
 The `id_token` and `access_token` are signed with the secret located at the `config.json` file. The `id_token` will contain the `username` and the `extra` information sent, while the `access_token` will contain the `audience`, `jti`, `issuer` and `scope`.
 
-#### POST `/sessions/create`
+#### POST `/match`
 
 You can do a POST to `/sessions/create` to log a user in.
 
@@ -49,15 +49,22 @@ The `id_token` and `access_token` are signed with the secret located at the `con
 
 ### Quotes API
 
-#### GET `/api/random-quote`
+#### GET `/autoarima`
 
 It returns a String with a Random quote from Chuck Norris. It doesn't require authentication.
 
-#### GET `/api/protected/random-quote`
+#### GET `/lstmrnn`
 
 It returns a String with a Random quote from Chuck Norris. It requires authentication. 
 
 The JWT - `access_token` must be sent on the `Authorization` header as follows: `Authorization: Bearer {jwt}`
+
+#### GET `/extracs`
+
+It returns a String with a Random quote from Chuck Norris. It requires authentication. 
+
+The JWT - `access_token` must be sent on the `Authorization` header as follows: `Authorization: Bearer {jwt}`
+
 
 ## Running it
 
