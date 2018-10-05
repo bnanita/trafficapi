@@ -1,218 +1,100 @@
-# [Django REST framework][docs]
+# TrafficAPI - Traffic DATALAKE  RestAPI
 
-[![build-status-image]][travis]
-[![coverage-status-image]][codecov]
-[![pypi-version]][pypi]
+This is a sample python based traffic API that support operation on traffic datalake. ## Available APIs
 
-**Awesome web-browsable Web APIs.**
+### User APIs
 
-Full documentation for the project is available at [https://www.django-rest-framework.org/][docs].
+#### POST `/traffics`
 
----
+You can do a POST to `/traffics` to create a new user.
 
-# Funding
+The body must have:
 
-REST framework is a *collaboratively funded project*. If you use
-REST framework commercially we strongly encourage you to invest in its
-continued development by [signing up for a paid plan][funding].
+* `username`: The username
+* `password`: The password
+* `extra`: Some extra information you want to save from the user (It's a string). This could be a color or anything at all.
 
-The initial aim is to provide a single full-time position on REST framework.
-*Every single sign-up makes a significant impact towards making that possible.*
+It returns the following:
 
-[![][rover-img]][rover-url]
-[![][sentry-img]][sentry-url]
-[![][stream-img]][stream-url]
-[![][rollbar-img]][rollbar-url]
-[![][cadre-img]][cadre-url]
-[![][load-impact-img]][load-impact-url]
-
-Many thanks to all our [wonderful sponsors][sponsors], and in particular to our premium backers, [Rover][rover-url], [Sentry][sentry-url], [Stream][stream-url], [Rollbar][rollbar-url], [Cadre][cadre-url], and [Load Impact][load-impact-url].
-
----
-
-# Overview
-
-Django REST framework is a powerful and flexible toolkit for building Web APIs.
-
-Some reasons you might want to use REST framework:
-
-* The [Web browsable API][sandbox] is a huge usability win for your developers.
-* [Authentication policies][authentication] including optional packages for [OAuth1a][oauth1-section] and [OAuth2][oauth2-section].
-* [Serialization][serializers] that supports both [ORM][modelserializer-section] and [non-ORM][serializer-section] data sources.
-* Customizable all the way down - just use [regular function-based views][functionview-section] if you don't need the [more][generic-views] [powerful][viewsets] [features][routers].
-* [Extensive documentation][docs], and [great community support][group].
-
-There is a live example API for testing purposes, [available here][sandbox].
-
-**Below**: *Screenshot from the browsable API*
-
-![Screenshot][image]
-
-----
-
-# Requirements
-
-* Python (2.7, 3.4, 3.5, 3.6, 3.7)
-* Django (1.11, 2.0, 2.1)
-
-# Installation
-
-Install using `pip`...
-
-    pip install djangorestframework
-
-Add `'rest_framework'` to your `INSTALLED_APPS` setting.
-
-    INSTALLED_APPS = (
-        ...
-        'rest_framework',
-    )
-
-# Example
-
-Let's take a look at a quick example of using REST framework to build a simple model-backed API for accessing users and groups.
-
-Startup up a new project like so...
-
-    pip install django
-    pip install djangorestframework
-    django-admin startproject example .
-    ./manage.py migrate
-    ./manage.py createsuperuser
-
-
-Now edit the `example/urls.py` module in your project:
-
-```python
-from django.conf.urls import url, include
-from django.contrib.auth.models import User
-from rest_framework import serializers, viewsets, routers
-
-# Serializers define the API representation.
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ('url', 'username', 'email', 'is_staff')
-
-
-# ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-# Routers provide a way of automatically determining the URL conf.
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-
-
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
-urlpatterns = [
-    url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-]
-```
-
-We'd also like to configure a couple of settings for our API.
-
-Add the following to your `settings.py` module:
-
-```python
-INSTALLED_APPS = (
-    ...  # Make sure to include the default installed apps here.
-    'rest_framework',
-)
-
-REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+```json
+{
+  "id_token": {jwt},
+  "access_token": {jwt}
 }
 ```
 
-That's it, we're done!
+The `id_token` and `access_token` are signed with the secret located at the `config.json` file. The `id_token` will contain the `username` and the `extra` information sent, while the `access_token` will contain the `audience`, `jti`, `issuer` and `scope`.
 
-    ./manage.py runserver
+#### POST `/sessions/create`
 
-You can now open the API in your browser at `http://127.0.0.1:8000/`, and view your new 'users' API. If you use the `Login` control in the top right corner you'll also be able to add, create and delete users from the system.
+You can do a POST to `/sessions/create` to log a user in.
 
-You can also interact with the API using command line tools such as [`curl`](https://curl.haxx.se/). For example, to list the users endpoint:
+The body must have:
 
-    $ curl -H 'Accept: application/json; indent=4' -u admin:password http://127.0.0.1:8000/users/
-    [
-        {
-            "url": "http://127.0.0.1:8000/users/1/",
-            "username": "admin",
-            "email": "admin@example.com",
-            "is_staff": true,
-        }
-    ]
+* `username`: The username
+* `password`: The password
 
-Or to create a new user:
+It returns the following:
 
-    $ curl -X POST -d username=new -d email=new@example.com -d is_staff=false -H 'Accept: application/json; indent=4' -u admin:password http://127.0.0.1:8000/users/
-    {
-        "url": "http://127.0.0.1:8000/users/2/",
-        "username": "new",
-        "email": "new@example.com",
-        "is_staff": false,
-    }
+```json
+{
+  "id_token": {jwt},
+  "access_token": {jwt}
+}
+```
 
-# Documentation & Support
+The `id_token` and `access_token` are signed with the secret located at the `config.json` file. The `id_token` will contain the `username` and the `extra` information sent, while the `access_token` will contain the `audience`, `jti`, `issuer` and `scope`.
 
-Full documentation for the project is available at [https://www.django-rest-framework.org/][docs].
+### Quotes API
 
-For questions and support, use the [REST framework discussion group][group], or `#restframework` on freenode IRC.
+#### GET `/api/random-quote`
 
-You may also want to [follow the author on Twitter][twitter].
+It returns a String with a Random quote from Chuck Norris. It doesn't require authentication.
 
-# Security
+#### GET `/api/protected/random-quote`
 
-If you believe you've found something in Django REST framework which has security implications, please **do not raise the issue in a public forum**.
+It returns a String with a Random quote from Chuck Norris. It requires authentication. 
 
-Send a description of the issue via email to [rest-framework-security@googlegroups.com][security-mail].  The project maintainers will then work with you to resolve any issues where required, prior to any public disclosure.
+The JWT - `access_token` must be sent on the `Authorization` header as follows: `Authorization: Bearer {jwt}`
 
-[build-status-image]: https://secure.travis-ci.org/encode/django-rest-framework.svg?branch=master
-[travis]: https://travis-ci.org/encode/django-rest-framework?branch=master
-[coverage-status-image]: https://img.shields.io/codecov/c/github/encode/django-rest-framework/master.svg
-[codecov]: https://codecov.io/github/encode/django-rest-framework?branch=master
-[pypi-version]: https://img.shields.io/pypi/v/djangorestframework.svg
-[pypi]: https://pypi.org/project/djangorestframework/
-[twitter]: https://twitter.com/_tomchristie
-[group]: https://groups.google.com/forum/?fromgroups#!forum/django-rest-framework
-[sandbox]: https://restframework.herokuapp.com/
+## Running it
 
-[funding]: https://fund.django-rest-framework.org/topics/funding/
-[sponsors]: https://fund.django-rest-framework.org/topics/funding/#our-sponsors
+Just clone the repository, run `npm install` and then `node server.js`. That's it :).
 
-[rover-img]: https://raw.githubusercontent.com/encode/django-rest-framework/master/docs/img/premium/rover-readme.png
-[sentry-img]: https://raw.githubusercontent.com/encode/django-rest-framework/master/docs/img/premium/sentry-readme.png
-[stream-img]: https://raw.githubusercontent.com/encode/django-rest-framework/master/docs/img/premium/stream-readme.png
-[rollbar-img]: https://raw.githubusercontent.com/encode/django-rest-framework/master/docs/img/premium/rollbar-readme.png
-[cadre-img]: https://raw.githubusercontent.com/encode/django-rest-framework/master/docs/img/premium/cadre-readme.png
-[load-impact-img]: https://raw.githubusercontent.com/encode/django-rest-framework/master/docs/img/premium/load-impact-readme.png
+If you want to run it on another port, just run `PORT=3001 node server.js` to run it on port 3001 for example
 
-[rover-url]: http://jobs.rover.com/
-[sentry-url]: https://getsentry.com/welcome/
-[stream-url]: https://getstream.io/try-the-api/?utm_source=drf&utm_medium=banner&utm_campaign=drf
-[rollbar-url]: https://rollbar.com/
-[cadre-url]: https://cadre.com/
-[load-impact-url]: https://loadimpact.com/?utm_campaign=Sponsorship%20links&utm_source=drf&utm_medium=drf
+## Issue Reporting
 
-[oauth1-section]: https://www.django-rest-framework.org/api-guide/authentication/#django-rest-framework-oauth
-[oauth2-section]: https://www.django-rest-framework.org/api-guide/authentication/#django-oauth-toolkit
-[serializer-section]: https://www.django-rest-framework.org/api-guide/serializers/#serializers
-[modelserializer-section]: https://www.django-rest-framework.org/api-guide/serializers/#modelserializer
-[functionview-section]: https://www.django-rest-framework.org/api-guide/views/#function-based-views
-[generic-views]: https://www.django-rest-framework.org/api-guide/generic-views/
-[viewsets]: https://www.django-rest-framework.org/api-guide/viewsets/
-[routers]: https://www.django-rest-framework.org/api-guide/routers/
-[serializers]: https://www.django-rest-framework.org/api-guide/serializers/
-[authentication]: https://www.django-rest-framework.org/api-guide/authentication/
-[image]: https://www.django-rest-framework.org/img/quickstart.png
+If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
 
-[docs]: https://www.django-rest-framework.org/
-[security-mail]: mailto:rest-framework-security@googlegroups.com
+## Author
+
+[Auth0](https://auth0.com)
+
+## License
+
+This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
+## What is Auth0?
+
+Auth0 helps you to:
+
+* Add authentication with [multiple authentication sources](https://docs.auth0.com/identityproviders), either social like **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, amont others**, or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS or any SAML Identity Provider**.
+* Add authentication through more traditional **[username/password databases](https://docs.auth0.com/mysql-connection-tutorial)**.
+* Add support for **[linking different user accounts](https://docs.auth0.com/link-accounts)** with the same user.
+* Support for generating signed [Json Web Tokens](https://docs.auth0.com/jwt) to call your APIs and **flow the user identity** securely.
+* Analytics of how, when and where users are logging in.
+* Pull data from other sources and add it to the user profile, through [JavaScript rules](https://docs.auth0.com/rules).
+
+## Create a free account in Auth0
+
+1. Go to [Auth0](https://auth0.com) and click Sign Up.
+2. Use Google, GitHub or Microsoft Account to login.
+
+## Use Postman
+
+Postman provides a powerful GUI platform to make your API development faster & easier, from building API requests through testing, documentation and sharing
+
+Here is a [small collection](https://documenter.getpostman.com/view/3232248/auth0-nodejs-jwt-auth/7LnAi4o) to highlight the features of this sample API.
+
+[![Run NodeJS JWT Authentication in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c57ddc507592c436662c)
+**Awesome web-browsable Web APIs.**
