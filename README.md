@@ -43,7 +43,8 @@ You can do a POST to `/match`,web scrapping from "http://www.worldfootball.net/t
 
 The body must have:
 
-* `year`: the year manchester united's matches
+* `year`: the year
+
 It returns the following:
 
 ```
