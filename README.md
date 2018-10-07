@@ -85,7 +85,58 @@ The JWT - `access_token` must be sent on the `Authorization` header as follows: 
 
 #### GET `/extracs`
 
-It returns processing time, balanced accuracy and  lists of outliers 
+It returns processing time, balanced accuracy and  lists of outliers
+The body must have:
+
+* `trainfile`: name of the training file 
+* `testfile`: name of the testing file 
+
+It returns the following:
+```
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>report traffic api</title>
+    </head>
+    <body>
+        <div class="row">
+        
+    
+            Processing Time : 399.6 seconds
+                 
+        
+            <br>
+            <br>
+    
+        </div>
+        <div class="table">
+            Balanced accuracy: 0.9816722972972973
+    
+            
+            <table border="1" class="dataframe">
+                <thead>
+                    <tr style="text-align: right;">
+                        <th></th>
+                        <th>Specified</th>
+                        <th>Condition</th>
+                        <th>Phenotype</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>3</th>
+                        <td>[2, 1, 3, 4, 0]</td>
+                        <td>[[512.375, 835.625], '2', '21', '1', '5']</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <td>[2, 1]</td>
+                        <td>[[25.97999999999999, 388.02], '2']</td>
+                        <td>1</td>
+                    </tr>
+```
 
 ## Running it
 
