@@ -61,7 +61,7 @@ The `id_token` and `access_token` are signed with the secret located at the `con
 
 ### Quotes API
 
-#### GET `/autoarima`
+#### GET `/arima`
 
 It returns a String with a Random quote from Chuck Norris. It doesn't require authentication.
 
@@ -73,10 +73,7 @@ The JWT - `access_token` must be sent on the `Authorization` header as follows: 
 
 #### GET `/extracs`
 
-It returns a String with a Random quote from Chuck Norris. It requires authentication. 
-
-The JWT - `access_token` must be sent on the `Authorization` header as follows: `Authorization: Bearer {jwt}`
-
+It returns processing time, balanced accuracy and  lists of outliers 
 
 ## Running it
 
