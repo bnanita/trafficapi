@@ -3,8 +3,6 @@ This is a sample python based HTTP interface to the datalake traffic API that su
 
 ## Available APIs
 
-### User APIs
-
 #### POST `/traffic`
 
 You can do a POST to `/traffics` to put traffic file into datalake
@@ -41,18 +39,35 @@ It returns the following:
 
 #### POST `/match`
 
-You can do a POST to `/match` to populate matches data to datalake.
+You can do a POST to `/match`,web scrapping from "http://www.worldfootball.net/teams/manchester-united/" to datalake.
 
 The body must have:
 
 * `year`: the year manchester united's matches
 It returns the following:
 
-```json
-{
-  "id_token": {jwt},
-  "access_token": {jwt}
-}
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>report traffic api</title>
+ 
+</head>
+<body>
+    <div class="row">
+            Processing Time : 1.73
+        <br>
+        <br>
+    </div>
+    <div class="table">
+            Match file successfuly saved  
+    </div>
+    <div class="image">
+    </div>
+</body>
+</html>
+```
 
 
 ### Quotes API
