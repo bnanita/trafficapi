@@ -8,24 +8,37 @@ This is a sample python based traffic API that support operation on traffic data
 
 #### POST `/traffic`
 
-You can do a POST to `/traffics` to create a new user.
+You can do a POST to `/traffics` to put traffic file into datalake
 
 The body must have:
 
-* `username`: The username
-* `password`: The password
-* `extra`: Some extra information you want to save from the user (It's a string). This could be a color or anything at all.
+* `file`: name of the file 
 
 It returns the following:
 
-```json
-{
-  "id_token": {jwt},
-  "access_token": {jwt}
-}
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>report traffic api</title>
+ 
+</head>
+<body>
+    <div class="row">
+            Processing Time : 1.73                 
+        <br>
+        <br>
+    </div>
+    <div class="table">                
+            Match file successfuly saved  
+    </div>
+    <div class="image">
+    </div>
+</body>
+</html>
 ```
 
-The `id_token` and `access_token` are signed with the secret located at the `config.json` file. The `id_token` will contain the `username` and the `extra` information sent, while the `access_token` will contain the `audience`, `jti`, `issuer` and `scope`.
 
 #### POST `/match`
 
