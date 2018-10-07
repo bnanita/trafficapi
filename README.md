@@ -30,7 +30,7 @@ It returns the following:
         <br>
     </div>
     <div class="table">                
-            Match file successfuly saved  
+            Traffic file successfuly saved  
     </div>
     <div class="image">
     </div>
@@ -41,13 +41,11 @@ It returns the following:
 
 #### POST `/match`
 
-You can do a POST to `/sessions/create` to log a user in.
+You can do a POST to `/match` to populate matches data to datalake.
 
 The body must have:
 
-* `username`: The username
-* `password`: The password
-
+* `year`: the year manchester united's matches
 It returns the following:
 
 ```json
@@ -55,9 +53,7 @@ It returns the following:
   "id_token": {jwt},
   "access_token": {jwt}
 }
-```
 
-The `id_token` and `access_token` are signed with the secret located at the `config.json` file. The `id_token` will contain the `username` and the `extra` information sent, while the `access_token` will contain the `audience`, `jti`, `issuer` and `scope`.
 
 ### Quotes API
 
