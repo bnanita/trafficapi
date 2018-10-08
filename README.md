@@ -20,6 +20,8 @@ The body must have:
 
 * `file`: name of the file 
 
+The testing file provided in the folder ./trafficapi/testing/traffic/
+
 It returns the following:
 
 ```
@@ -143,6 +145,8 @@ The body must have:
 
 * `trainfile`: name of the training file 
 * `testfile`: name of the testing file 
+
+the testing files provided in the folder ./trafficapi/testing/extracs/
 
 It returns the following:
 ```
