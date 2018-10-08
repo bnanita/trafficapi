@@ -1,6 +1,15 @@
 # TrafficAPI - API interface to the traffic Datalake
 This is a sample python based HTTP interface to the datalake traffic API that support operation on traffic datalake. 
 
+## TrafficAPI helps you to:
+
+* store file traffic gathered from censor to data lake
+* store file manchester united football matches crawled from website "http://www.worldfootball.net/teams/manchester-united/"
+* integrate data matches and traffics 
+* perform outlier detection using arima algorithm
+* Perform outlier detection using lstmnrn
+* Perform outlier detection using extracs
+
 ## Available APIs
 
 #### POST `/traffic`
@@ -188,9 +197,9 @@ It returns the following:
 
 ## Running it
 
-Just clone the repository, run `npm install` and then `node server.js`. That's it :).
+Just clone the repository, install library needed and run `python trafficapi.py`. That's it :).
 
-If you want to run it on another port, just run `PORT=3001 node server.js` to run it on port 3001 for example
+Library 
 
 ## Issue Reporting
 
@@ -205,14 +214,7 @@ If you have found a bug or if you have a feature request, please report them at 
 This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
 ## What is Auth0?
 
-Auth0 helps you to:
 
-* Add authentication with [multiple authentication sources](https://docs.auth0.com/identityproviders), either social like **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, amont others**, or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS or any SAML Identity Provider**.
-* Add authentication through more traditional **[username/password databases](https://docs.auth0.com/mysql-connection-tutorial)**.
-* Add support for **[linking different user accounts](https://docs.auth0.com/link-accounts)** with the same user.
-* Support for generating signed [Json Web Tokens](https://docs.auth0.com/jwt) to call your APIs and **flow the user identity** securely.
-* Analytics of how, when and where users are logging in.
-* Pull data from other sources and add it to the user profile, through [JavaScript rules](https://docs.auth0.com/rules).
 
 ## Create a free account in Auth0
 
