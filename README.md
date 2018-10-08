@@ -7,8 +7,8 @@ This is a sample python based HTTP interface to the datalake traffic API that su
 * store file manchester united football matches crawled from website "http://www.worldfootball.net/teams/manchester-united/"
 * integrate data matches and traffics 
 * perform outlier detection using arima algorithm
-* Perform outlier detection using lstmnrn
-* Perform outlier detection using extracs
+* Perform outlier detection using lstmnrnn algorithm
+* Perform outlier detection using ExSTraCS algorithm
 
 ## Available APIs
 
@@ -138,9 +138,9 @@ It returns list of outlierr using arima algorithm, balanced accuracy and process
 
 It returns list of outliers using , balanced accuracy and processing time. 
 
-#### GET `/extracs`
+#### GET `/ExSTraCS`
 
-It returns processing time using extracs web service, balanced accuracy and  lists of outliers predection based on extracs algorithm.
+It returns processing time using extracs web service, balanced accuracy and  lists of outliers predection based on ExSTraCS algorithm.
 The body must have:
 
 * `trainfile`: name of the training file 
