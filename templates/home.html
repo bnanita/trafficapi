@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>report traffic api</title>
+ 
+</head>
+<body>
+    <div class="row">
+        {% block body %}
+    
+            Processing Time : {{data2|safe}} seconds
+                 
+        <br>
+        <br>
+    </div>
+    <div class="table">
+            {{data|safe}}    
+            {{data3|safe}}  
+    </div>
+    <div class="image">
+        
+            {{graph|safe}}
+        {% endblock %}
+
+    </div>
+</body>
+</html>
