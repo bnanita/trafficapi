@@ -77,12 +77,19 @@ You can perform data traffic and data matches integration,
 The body must have:
 
 monthfrom : name of the month (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dev)
+
 yearfrom : 4 digit year (etc: 2012,2014..)
+
 monthto : name of the month (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dev)
+
 yearto : 4 digit year (etc: 2012,2014..)
+
 place : home or away
+
 bfrduration : length of duration before the kick off in hour 
+
 afterduration : length of duration after the match in hour
+
 
 It returns the following:
 
