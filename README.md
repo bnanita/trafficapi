@@ -128,19 +128,17 @@ It returns the following:
 2012-11-01 00:00:00,1083,3,NB_OS,1,North,26,0,,18526,0,1,25,0,0,0,0,0,2012/11/01,00,3,Thursday,Weekdays
 ```
 
-### Quotes API
-
 #### GET `/arima`
 
-It returns list of outliers, balanced accuracy and processing time. 
+It returns list of outlierr using arima algorithm, balanced accuracy and processing time. 
 
 #### GET `/lstmrnn`
 
-It returns list of outliers, balanced accuracy and processing time. 
+It returns list of outliers using , balanced accuracy and processing time. 
 
 #### GET `/extracs`
 
-It returns processing time, balanced accuracy and  lists of outliers
+It returns processing time using extracs web service, balanced accuracy and  lists of outliers predection based on extracs algorithm.
 The body must have:
 
 * `trainfile`: name of the training file 
@@ -217,6 +215,10 @@ If you have found a bug or if you have a feature request, please report them at 
 
 bnanita
 
+## System Requirement
+
+python version 3.6.5 above
+
 ## License
 
 This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
@@ -225,4 +227,3 @@ This project is licensed under the MIT license. See the [LICENSE](LICENSE) file 
 
 Postman provides a powerful GUI platform to make your API development faster & easier, from building API requests through testing, documentation and sharing
 
-**Awesome web-browsable Web APIs.**
