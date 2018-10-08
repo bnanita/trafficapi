@@ -70,7 +70,7 @@ It returns the following:
 </html>
 ```
 
-#### GET `/integration/<monthfrom>/<yearfrom>/<monthto>/<yearto>/<place>/<int:bfrduration>/<int:afterduration>'`
+##### GET `/integration/<monthfrom>/<yearfrom>/<monthto>/<yearto>/<place>/<int:bfrduration>/<int:afterduration>`
 
 You can perform data traffic and data matches integration, 
 
