@@ -70,6 +70,47 @@ It returns the following:
 </html>
 ```
 
+#### GET `/integration/<monthfrom>/<yearfrom>/<monthto>/<yearto>/<place>/<int:bfrduration>/<int:afterduration>'`
+
+You can perform data traffic and data matches integration, 
+
+The body must have:
+
+monthfrom : name of the month (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dev)
+yearfrom : 4 digit year (etc: 2012,2014..)
+monthto : name of the month (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dev)
+yearto : 4 digit year (etc: 2012,2014..)
+place : home or away
+bfrduration : length of duration before the kick off in hour 
+afterduration : length of duration after the match in hour
+
+It returns the following:
+
+```
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>report traffic api</title>
+    </head>
+    <body>
+        <div class="row">
+        
+    
+            Processing Time : 8.04 seconds
+                 
+        
+            <br>
+            <br>
+    
+        </div>
+        <div class="table">
+                
+            Sdate,Cosit,LaneNumber,LaneDescription,LaneDirection,DirectionDescription,Volume,Flags,Flag Text,AvgSpeed,PmlHGV,Class1Volume,Class2Volume,Class3Volume,Class4Volume,Class5Volume,Class6Volume,Outlier,Date,Hour,DayNumber,DayName,Week
+2012-11-01 00:00:00,1083,1,NB_NS,1,North,50,0,,17711,20,0,49,0,1,0,0,0,2012/11/01,00,3,Thursday,Weekdays
+2012-11-01 00:00:00,1083,2,NB_MID,1,North,94,0,,18227,32,0,91,0,2,1,0,0,2012/11/01,00,3,Thursday,Weekdays
+2012-11-01 00:00:00,1083,3,NB_OS,1,North,26,0,,18526,0,1,25,0,0,0,0,0,2012/11/01,00,3,Thursday,Weekdays
+```
 
 ### Quotes API
 
