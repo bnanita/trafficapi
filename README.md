@@ -132,13 +132,11 @@ It returns the following:
 
 #### GET `/arima`
 
-It returns a String with a Random quote from Chuck Norris. It doesn't require authentication.
+It returns list of outliers, balanced accuracy and processing time. 
 
 #### GET `/lstmrnn`
 
-It returns a String with a Random quote from Chuck Norris. It requires authentication. 
-
-The JWT - `access_token` must be sent on the `Authorization` header as follows: `Authorization: Bearer {jwt}`
+It returns list of outliers, balanced accuracy and processing time. 
 
 #### GET `/extracs`
 
@@ -157,12 +155,8 @@ It returns the following:
         <title>report traffic api</title>
     </head>
     <body>
-        <div class="row">
-        
-    
+        <div class="row"    
             Processing Time : 399.6 seconds
-                 
-        
             <br>
             <br>
     
@@ -199,33 +193,36 @@ It returns the following:
 
 Just clone the repository, install library needed and run `python trafficapi.py`. That's it :).
 
-Library 
+Library :
+1. flask
+2. flask_restful
+3. BeautifulSoup
+4. sklearn
+5. keras_anomaly_detection
+6. pandas 
+7. matplotlib
+8. pyramid.arima 
+9. scipy
+10.time
+11.io 
+12.os
+13.datetime 
+14.exstracs
 
 ## Issue Reporting
 
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
+If you have found a bug or if you have a feature request, please report them at this repository issues section.
 
 ## Author
 
-[Auth0](https://auth0.com)
+bnanita
 
 ## License
 
 This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
-## What is Auth0?
-
-
-
-## Create a free account in Auth0
-
-1. Go to [Auth0](https://auth0.com) and click Sign Up.
-2. Use Google, GitHub or Microsoft Account to login.
 
 ## Use Postman
 
 Postman provides a powerful GUI platform to make your API development faster & easier, from building API requests through testing, documentation and sharing
 
-Here is a [small collection](https://documenter.getpostman.com/view/3232248/auth0-nodejs-jwt-auth/7LnAi4o) to highlight the features of this sample API.
-
-[![Run NodeJS JWT Authentication in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c57ddc507592c436662c)
 **Awesome web-browsable Web APIs.**
